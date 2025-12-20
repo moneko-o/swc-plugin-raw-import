@@ -1,9 +1,23 @@
 {
     "name": "@moneko/raw-import",
-    "version": "1.2.2",
+    "version": "1.3.0",
     "description": "Another wasm swc raw import plugin",
-    "author": "moneko",
+    "main": "raw_import.wasm",
+    "author": {
+        "name": "moneko",
+        "email": "poi.nyaa@qq.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "+https://github.com/monako97/swc-plugin-raw-import.git"
+    },
     "license": "MIT",
+    "scripts": {
+        "prepublishOnly": "cargo wasip1 && rm -rf ./raw_import.wasm && mv ./target/wasm32-wasip1/release/swc_plugin_raw_import.wasm ./raw_import.wasm && node ./test.mjs"
+    },
+    "devDependencies": {
+        "@swc/core": "1.15.7"
+    },
     "keywords": [
         "swc-plugin",
         "swc",
@@ -16,14 +30,11 @@
         "raw",
         "raw-import"
     ],
-    "main": "raw_import.wasm",
-    "scripts": {
-        "prepublishOnly": "cargo wasip1 && rm -rf ./raw_import.wasm && mv ./target/wasm32-wasip1/release/swc_plugin_raw_import.wasm ./raw_import.wasm && node ./test.mjs"
+    "homepage": "https://github.com/monako97/swc-plugin-raw-import",
+    "bugs": {
+        "url": "https://github.com/monako97/swc-plugin-raw-import/issues"
     },
     "files": [
         "raw_import.wasm"
-    ],
-    "devDependencies": {
-        "@swc/core": "1.15.1"
-    }
+    ]
 }
